@@ -1,24 +1,55 @@
-import React from 'react';
+import React, {useState} from 'react';
+
+// const credentials = {
+//     credentials: {
+//         username: '',
+//         password: '',
+//     }
+// }
 
 const Login = () => {
-  return (
-      <div className="Login">
-        <form className='login-form'>
-            <h1>Login</h1>
-            <input
-                type='text'
-                placeholder='Username'
-                name='username'
-            />
-            <input
-                type='text'
-                placeholder='Password'
-                name='password'
-            />
-            <button>Login</button>
-        </form>
-      </div>
-  );
-}
+    const [credentials, setCredentials] = useState({
+            username: '',
+            password: '',
+    });
+
+    console.log(credentials);
+
+    const handleChange = e => {
+        e.preventDefault();
+        setCredentials({
+            ...credentials,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        
+    }
+
+    return (
+        <div className="Login">
+            <form className='login-form'>
+                <h1>Login</h1>
+                <input
+                    type='text'
+                    placeholder='Username'
+                    name='username'
+                    value={credentials.username}
+                    onChange={handleChange}
+                />
+                <input
+                    type='text'
+                    placeholder='Password'
+                    name='password'
+                    value={credentials.password}
+                    onChange={handleChange}
+                />
+                <button>Login</button>
+            </form>
+        </div>
+    );
+    }
 
 export default Login;
