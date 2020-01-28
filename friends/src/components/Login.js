@@ -1,20 +1,11 @@
 import React, {useState} from 'react';
 
-// const credentials = {
-//     credentials: {
-//         username: '',
-//         password: '',
-//     }
-// }
-
 const Login = () => {
     const [credentials, setCredentials] = useState({
             username: '',
             password: '',
     });
-
-    console.log(credentials);
-
+    
     const handleChange = e => {
         e.preventDefault();
         setCredentials({
@@ -25,7 +16,7 @@ const Login = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        
+
     }
 
     return (

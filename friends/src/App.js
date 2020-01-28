@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Login from './components/Login';
 import FriendsList from './components/FriendsList';
 import FriendsCard from './components/FriendsCard';
+import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
 const App = () => {
@@ -18,9 +19,8 @@ const App = () => {
         <h1>Friends</h1>
       </div>
       <Switch>
-        {/* <Route exact path='/' component={Login} /> */}
         <Route exact path='/api/login' component={Login} />
-        <Route path='/api/friends' component={FriendsList} />
+        <PrivateRoute exact path='/api/friends' component={FriendsList} />
         <Route path='/api/friends/:id' component={FriendsCard} />
         <Route path='/api/friends-card' component={FriendsCard} />
       </Switch>
