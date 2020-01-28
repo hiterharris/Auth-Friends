@@ -2,37 +2,42 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-link {
+  margin: 1%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Login {
+  display: flex;
+  justify-content: center;
+}
+
+.Login form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Login form input {
+  height: 25px;
+  width: 200px;
+  margin: 2%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Login form button {
+  width: 100px;
+  height: 25px;
+  margin: auto;
+}
+
+.FriendsCard {
+  width: 400px;
+  height: 300px;
+  border: 1px solid lightgrey;
+  margin: auto;
+  text-align: center;
 }
