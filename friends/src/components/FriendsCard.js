@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FriendsCard() {
+const FriendsCard = () => {
   return (
       <div className="FriendsCard">
         <h1>Friends Card</h1>

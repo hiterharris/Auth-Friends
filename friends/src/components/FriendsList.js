@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 
-function FriendsList() {
+const FriendsList = () => {
   return (
       <div className="FriendsList">
         <h1>Friends List</h1>
