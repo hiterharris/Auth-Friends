@@ -4,6 +4,7 @@ const Login = () => {
   return (
       <div className="Login">
         <form className='login-form'>
+            <h1>Login</h1>
             <input
                 type='text'
                 placeholder='Username'

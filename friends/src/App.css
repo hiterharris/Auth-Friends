@@ -20,6 +20,7 @@ nav {
 .Login form {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .Login form input {
@@ -34,10 +35,16 @@ nav {
   margin: auto;
 }
 
+.FriendsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .FriendsCard {
   width: 400px;
   height: 300px;
   border: 1px solid lightgrey;
-  margin: auto;
+  margin: 2% auto;
   text-align: center;
 }

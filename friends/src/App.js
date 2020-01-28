@@ -6,21 +6,23 @@ import FriendsList from './components/FriendsList';
 import FriendsCard from './components/FriendsCard';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <Router >
       <div className="App">
         <nav>
-          <Link className='nav-link' to="/api">Login</Link>
+          <Link className='nav-link' to="/">Home</Link>
+          <Link className='nav-link' to="/api/login">Login</Link>
           <Link className='nav-link' to='/api/friends'>Friends List</Link>
         </nav>
         <h1>Friends</h1>
-        <Login />
       </div>
       <Switch>
-        <Route path='/api/login' component={Login} />
-        <Route exact path='/api/friends' component={FriendsList} />
+        {/* <Route exact path='/' component={Login} /> */}
+        <Route exact path='/api/login' component={Login} />
+        <Route path='/api/friends' component={FriendsList} />
         <Route path='/api/friends/:id' component={FriendsCard} />
+        <Route path='/api/friends-card' component={FriendsCard} />
       </Switch>
     </Router>
   );
