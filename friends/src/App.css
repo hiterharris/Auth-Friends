@@ -37,14 +37,20 @@ nav {
 
 .FriendsList {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+}
+
+.friend-container {
+  margin: 2%;
+  border: 1px solid lightgrey;
+  text-align: center;
+  width: 20%;
 }
 
 .FriendsCard {
   width: 400px;
   height: 300px;
-  border: 1px solid lightgrey;
   margin: 2% auto;
   text-align: center;
 }

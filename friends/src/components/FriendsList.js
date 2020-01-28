@@ -1,11 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 const FriendsList = () => {
+  const [friendsList, setFriendsList] = useState([]);
+
+  useEffect(() => {
+    axiosWithAuth()
+      .get('/api/friends')
+      .then(response => {
+        setFriendsList(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, [])
+
+  console.log(friendsList);
+
+
   return (
       <div className="FriendsList">
-        {/* <Link to='/api/friends/:id'>Friend #1</Link> */}
-        <Link to='/api/friends-card'>Friend #1</Link>
+        {friendsList.map(friend => {
+          return (
+          <Link to={`/api/friends/${friend.id}`} key={friend.id} className='friend-container'>
+              <div >
+                <p>{friend.name}</p>
+                <p>{friend.age}</p>
+                <p>{friend.email}</p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
   );
 }

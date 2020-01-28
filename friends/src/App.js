@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 
 import Login from './components/Login';
@@ -22,7 +22,8 @@ const App = () => {
         <Route exact path='/api/login' component={Login} />
         <PrivateRoute exact path='/api/friends' component={FriendsList} />
         <Route path='/api/friends/:id' component={FriendsCard} />
-        <Route path='/api/friends-card' component={FriendsCard} />
+        <Route path='/api/friends/:id' render={props => <FriendsCard {...props} />} />
+
       </Switch>
     </Router>
   );
