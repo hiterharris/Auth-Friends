@@ -1,11 +1,24 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2% 0%;
+}
+
+.empty-container {
+  width: 30%;
+}
+
+.header {
+  width: 20%;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
-  margin: 2%;
+  width: 28%;
+  margin-right: 2%;
 }
 
 .nav-link {
