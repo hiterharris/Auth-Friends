@@ -14,10 +14,7 @@ const FriendsList = () => {
       .catch(error => {
         console.log(error);
       })
-  }, [])
-
-  console.log(friendsList);
-
+  }, []);
 
   return (
       <div className="FriendsList">

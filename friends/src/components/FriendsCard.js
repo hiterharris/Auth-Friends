@@ -1,22 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {BrowserRouter as Router, useParams} from 'react-router-dom';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 
-const FriendsCard = props => {
-  console.log(props);
+const FriendsCard = () => {
+  const [friend, setFriend] = useState([]);
+  let {id} = useParams();
+  console.log({id});
+
+  useEffect(() => {
+    axiosWithAuth()
+    .get(`/api/friends/${id}`)
+    .then(response => {
+      setFriend(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }, [id]);
+
   return (
       <div className="FriendsCard">
-        <h1>Friends Card</h1>
+        <p>{friend.name}</p>
+        <p>{friend.age}</p>
+        <p>{friend.email}</p>
       </div>
   );
 }
 
 export default FriendsCard;
-
-// {friendsList.map(friend => {
-//   return (
-//     <div key={friend.id}>
-//       <p>{friend.name}</p>
-//       <p>{friend.age}</p>
-//       <p>{friend.email}</p>
-//     </div>
-//   );
-// })}
