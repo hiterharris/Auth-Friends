@@ -22,7 +22,6 @@ const App = () => {
         <Route exact path='/api/login' component={Login} />
         <PrivateRoute exact path='/api/friends' component={FriendsList} />
         <Route path='/api/friends/:id' component={FriendsCard} />
-        {/* <Route path='/api/friends/:id' render={props => <FriendsCard {...props} />} /> */}
       </Switch>
     </Router>
   );

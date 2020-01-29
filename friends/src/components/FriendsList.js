@@ -4,6 +4,12 @@ import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 const FriendsList = () => {
   const [friendsList, setFriendsList] = useState([]);
+  const [newFriend, setNewFriend] = useState({
+      id: Date.now(),
+      name: '',
+      age: '',
+      email: ''
+  });
 
   useEffect(() => {
     axiosWithAuth()
@@ -16,12 +22,64 @@ const FriendsList = () => {
       })
   }, []);
 
+  const handleChanges = e => {
+    e.preventDefault();
+    setNewFriend({
+      ...newFriend,
+    [e.target.name]: e.target.value
+    });
+  }
+
+  const handlePostRequest = e => {
+    e.preventDefault();
+    axiosWithAuth()
+    .post('/api/friends/', newFriend)
+    .then(response => {
+      setFriendsList({
+        ...response.data,
+      })
+    })
+    .catch(err => console.log(err));
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    setFriendsList([
+      ...friendsList,
+      newFriend
+    ]);
+  }
+
+  console.log(friendsList);
+
   return (
-      <div className="FriendsList">
+    <div className="FriendsList">
+      <form onSubmit={handleSubmit}>
+        <input
+          type='text'
+          placeholder='Name'
+          name='name'
+          onChange={handleChanges}
+        />
+        <input
+          type='text'
+          placeholder='Age'
+          name='age'
+          onChange={handleChanges}
+        />
+        <input
+          type='text'
+          placeholder='Email'
+          name='email'
+          onChange={handleChanges}
+        />
+        <button>Add Friend</button>
+      </form>
+      <div className='wrapper'>
         {friendsList.map(friend => {
           return (
           <Link to={`/api/friends/${friend.id}`} key={friend.id} className='friend-container'>
-              <div >
+              <div>
                 <p>{friend.name}</p>
                 <p>{friend.age}</p>
                 <p>{friend.email}</p>
@@ -30,6 +88,7 @@ const FriendsList = () => {
           );
         })}
       </div>
+    </div>
   );
 }
 
