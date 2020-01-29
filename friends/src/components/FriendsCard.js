@@ -5,7 +5,6 @@ import {axiosWithAuth} from '../utils/axiosWithAuth';
 const FriendsCard = () => {
   const [friend, setFriend] = useState([]);
   let {id} = useParams();
-  console.log({id});
 
   useEffect(() => {
     axiosWithAuth()

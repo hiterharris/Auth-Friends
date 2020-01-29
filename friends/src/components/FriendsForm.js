@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 
 const FriendsForm = props => {
-//   const [friendsList, setFriendsList] = useState([]);
   const [newFriend, setNewFriend] = useState({
       id: Date.now(),
       name: '',
